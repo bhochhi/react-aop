@@ -9,10 +9,12 @@ Suppose you have a react application, let say with flux architecture. You want t
 
   **Advice** –  module of code to be executed (additional behavior you want to apply)  
   **Pointcut** – place in code where an advice should be applied(point of execution, like method names)  
-  **JoinPoints** - before, after, round, beforeThrowing, afterThrowing  
+  **JoinPoints** - before, after (will add more in future)
   **Aspect** – The combination of the pointcut and the advice is termed an aspect
 
-
+**JoinPoints**
+* before: advice will be fired before pointcut is executed. Here the arguments would be exactly same as PointCut arguments in order.
+* after: advice will be fired just after pointcut is executed. Here the first argument is the return value of pointcut and remaining arguments would be initial arguments of pointcut function.
 
 **Usages**
 
