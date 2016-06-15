@@ -12,14 +12,13 @@ Suppose you have a react application, let say with flux architecture. You want t
   *Aspect* – The combination of the pointcut and the advice is termed an aspect
 
 **JoinPoints**  
-* _before_: advice will be fired before pointcut is executed. Here the arguments would be exactly same as PointCut arguments in order.
-* _after_: advice will be fired just after pointcut is executed. Here the first argument is the return value of pointcut and remaining arguments would be initial arguments of pointcut function.
+* _before_- advice will be fired before pointcut is executed. Here the arguments would be exactly same as PointCut arguments in order.
+* _after_- advice will be fired just after pointcut is executed. Here the first argument is the return value of pointcut and remaining arguments would be initial arguments of pointcut function.
 
-**Usages**
-
+**Usages**  
 ```npm install --save react-aop```
 
-Add following code before requiring any react components from where you intent to collect the data and before calling ReactDOM.render function. So, in your entry js file:
+Add following code before requiring any react components from where you intent to collect the data and before calling ReactDOM.render function. So, in your entry js file:  
 ```
 var react-aop = require('react-aop');
 var usuages = require('./common/usages');
