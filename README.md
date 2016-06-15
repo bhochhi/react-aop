@@ -6,12 +6,29 @@ Usages
 
 ```npm install --save react-aop```
 
-Add following code before requiring any react components where you intent to collect the data and before calling ReactDOM.render function. So, in your entry js file:
+Add following code before requiring any react components from where you intent to collect the data and before calling ReactDOM.render function. So, in your entry js file:
 ```
 var react-aop = require('react-aop');
 var usuages = require('./common/usages');
 react-aop.register(usuages);
 ```
 
-In the above code usages is an array of all possible aspects you want to add. 
+In the above code usages is an array of all possible aspects you want to add. for instance: usages.js
+
+```
+
+var usages = [
+
+{
+
+
+}
+
+
+]
+
+
+
+module.exports = usuages;
+```
 
