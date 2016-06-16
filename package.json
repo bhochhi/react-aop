@@ -4,7 +4,7 @@
   "description": "adding cross-cutting concerns into react component through AOP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/**/*.js --recursive"
   },
   "repository": {
     "type": "git",

@@ -5,7 +5,7 @@ var sinon = require('sinon');
 describe('Given a react-aop module', function() {
   var reactAOP;
   beforeEach(function() {
-    reactAOP = require('../../src/lib/react-aop');
+    reactAOP = require('../../lib/react-aop');
   });
   describe('And I have specification for the react component to test before crosspoint', function() {
     var MockComponent, specs, result=[];
