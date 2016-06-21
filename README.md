@@ -45,7 +45,7 @@ All fields are required. _joinPoint_ and _pointCut_ are string, _advice_ is a fu
 
 **Caveat - WorkAround**
 
-This version (1.0.3), uses a workaround when you have to add advice(extra behavior) on certain method of React Component. Since I were not able to get hold of Backing Instance of react Component (similar to one return by ReactDOM.render) for all child components(I tried with ReactTestUtils and ref props.), whenever pointcut method internally call methods or properties within itself(using _this_), we can not use such method as pointcut anymore. So, the workaround for now is create the separate method _hookMethod( just signature is sufficient) and invoke this method from your originally intended pointcut method, and make _hookMethod as your pointcut method. For Instance:
+This version (^1.0.3), uses a workaround when you have to add advice(extra behavior) on certain method of React Component. Since I were not able to get hold of Backing Instance of react Component (similar to one return by ReactDOM.render) for all child components(I tried with ReactTestUtils and ref props.), whenever pointcut method internally call methods or properties within itself(using _this_), we can not use such method as pointcut anymore. So, the workaround for now is create the separate method _hookMethod( just signature is sufficient) and invoke this method from your originally intended pointcut method, and make _hookMethod as your pointcut method. For Instance:
 
 original input to apply AOP:  
 ```
