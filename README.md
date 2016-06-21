@@ -41,4 +41,45 @@ exports.usages = [
 }
 ]
 ```
-All fields are required. _joingPoint_ and _pointCut_ are string, _advice_ is a function type and componentName can be string( for react component) or object( for any generic node module);
+All fields are required. _joinPoint_ and _pointCut_ are string, _advice_ is a function type and componentName can be string( for react component) or object( for any generic node module);
+
+**Caveat - WorkAround**
+
+This version (1.0.3), uses a workaround when you have to add advice(extra behavior) on certain method of React Component. Since I were not able to get hold of Backing Instance of react Component (similar to one return by ReactDOM.render) for all child components(I tried with ReactTestUtils and ref props.), whenever pointcut method internally call methods or properties within itself(using _this_), we can not use such method as pointcut anymore. So, the workaround for now is create the separate method _hookMethod( just signature is sufficient) and invoke this method from your originally intended pointcut method, and make _hookMethod as your pointcut method. For Instance:
+
+original input to apply AOP:  
+```
+[{
+   componentName: 'ReactComponentDisplayName',
+  jointPoint: 'before',  
+  pointCut: 'methodX',
+  advice: adviceOnMethod
+}]
+```  
+if methodX looks like:  
+```
+methodX = function(params){
+ ..
+ this.setState({field:params});
+}
+```  
+then you can't make methodX as your pointcut. You need to modify such method as:  
+```
+..
+methodX = function(params){
+ ..
+ this._aopHook();
+ this.setState({field:params});
+},
+_aopHook = function(){}
+```
+And your input for AOP will be:  
+```
+[{
+   componentName: 'ReactComponentDisplayName',
+  jointPoint: 'before',  
+  pointCut: '_aopHook',
+  advice: adviceOnMethod
+}]
+```  
+I understand this is not perfect, but until we find the better [solution](https://github.com/bhochhi/react-aop/issues/1), current approach provides proximity to AOP for react based applications. 
