@@ -1,6 +1,6 @@
 {
   "name": "react-aop",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "adding cross-cutting concerns into react component through AOP",
   "main": "index.js",
   "scripts": {
